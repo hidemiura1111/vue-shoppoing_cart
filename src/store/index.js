@@ -3,20 +3,27 @@ import Vue from 'vue'
 
 Vue.use(Vuex)
 
-new Vuex.Store({
-  steate: {
+export default new Vuex.Store({
+  state: {
     products: []
   },
 
-  getter: {
+  getters: {
     productsCount() {
 
     }
   },
 
-  mutations: {
-    setProducts() {
+  actions: {
+    fetchProducts() {
 
+    }
+  },
+
+  mutations: {
+    // First param is state, second is payload
+    setProducts(state, products) {
+      state.products = products
     }
   },
 })

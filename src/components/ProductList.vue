@@ -9,19 +9,23 @@
 
 <script>
 import shop from '@/api/shop'
+import store from '@/store/index'
+
 export default {
-  data() {
-    return {
-      products: []
+  computed: {
+    products () {
+      return store.state.products
     }
   },
-  created() {
+  
+  created () {
     shop.getProducts(products => {
-      this.products = products
+      store.commit('setProducts', products)
     })
   },
 }
 </script>
 
 <style scoped>
+
 </style>
