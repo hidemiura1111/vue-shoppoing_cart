@@ -13,8 +13,9 @@ import store from '@/store/index'
 
 export default {
   computed: {
-    products () {
-      return store.state.products
+    products() {
+      // return store.state.products
+      return store.getters.availableProducts
     }
   },
   
