@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Produvt List</h1>
+    <h1>Product List</h1>
     <img 
       v-if="loading"
       src="https://i.imgur.com/JfPpwOA.gif"
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import store from '@/store/index'
 
 export default {
   data () {
@@ -22,19 +21,15 @@ export default {
   },
 
   computed: {
-    products () {
-      // return store.state.products
-      return store.getters.availableProducts
+    products() {
+      return this.$store.getters.availableProducts
     }
   },
   
   created () {
     this.loading = true
-    store.dispatch('fetchProducts')
+    this.$store.dispatch('fetchProducts')
       .then(() => this.loading = false)
-    // shop.getProducts(products => {
-    //   store.commit('setProducts', products)
-    // })
   },
 }
 </script>
