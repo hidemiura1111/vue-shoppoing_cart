@@ -29,7 +29,7 @@ export default {
   computed: {
     // Vue Map Helpers
     ...mapState({
-      products: state => state.products
+      products: state => state.products.items
     }),
 
     ...mapGetters({

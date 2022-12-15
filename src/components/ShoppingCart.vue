@@ -17,7 +17,8 @@ export default {
   computed: {
     // Vue Map Helpers
     ...mapState({
-      checkoutStatus: 'checkoutStatus',
+      checkoutStatus: state => state.cart.checkoutStatus
+      // checkoutStatus: 'checkoutStatus',
     }),
 
     ...mapGetters({
