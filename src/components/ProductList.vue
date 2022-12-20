@@ -22,7 +22,8 @@ import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
-      loading: false
+      loading: false,
+      productIndex: 1,
     }
   },
 
@@ -32,7 +33,7 @@ export default {
       products: state => state.products.items
     }),
 
-    ...mapGetters({
+    ...mapGetters('products', {
       productIsInStock: 'productIsInStock'
     }),
 
@@ -51,8 +52,8 @@ export default {
   methods: {
     // Vue Map Helpers
     ...mapActions({
-      fetchProducts: 'fetchProducts',
-      addProductToCart: 'addProductToCart'
+      fetchProducts: 'products/fetchProducts',
+      addProductToCart: 'cart/addProductToCart'
     }),
 
     // addProductToCart(product) {
